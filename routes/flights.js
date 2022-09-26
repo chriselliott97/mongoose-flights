@@ -10,8 +10,12 @@ router.get('/', flightsCtrl.index)
 router.get('/new', flightsCtrl.new)
 // GET flights/show
 router.get('/:id', flightsCtrl.show)
+//GET flights/:id/edit
+router.get('/:id/edit', flightsCtrl.edit)
 // POST /flights
 router.post('/', flightsCtrl.create)
+// PUT flights/:id
+router.put('/:id', flightsCtrl.update)
 // DELETE /movies/:id
 router.delete('/:id', flightsCtrl.delete)
 
