@@ -4,7 +4,7 @@
 
 <main>
   <h1>Flight List</h1>
-  <table>
+  <table id="list">
     <thead>
       <tr>
         <th>Airline</th>
@@ -20,6 +20,14 @@
           <td><%= flight.airport %></td>
           <td><%= flight.flightNo %></td>
           <td><%= flight.departs %></td>
+          <td>
+            <a href="/flights/<%= flight._id %>">DETAILS</a>
+          </td>
+        <td>
+          <form action="/flights/<%= flight._id %>?_method=DELETE" method="POST">
+            <button>X</button>
+          </form>
+        </td>
         </tr>
       <% }) %> 
     </tbody>
