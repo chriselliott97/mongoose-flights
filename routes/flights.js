@@ -12,6 +12,11 @@ router.get('/new', flightsCtrl.new)
 router.get('/:id', flightsCtrl.show)
 // POST /flights
 router.post('/', flightsCtrl.create)
+// DELETE /movies/:id
+router.delete('/:id', flightsCtrl.delete)
+
+
+
 
 export {
   router
