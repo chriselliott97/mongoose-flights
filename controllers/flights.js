@@ -34,6 +34,7 @@ function index(req, res) {
 function show(req, res) {
   Flight.findById(req.params.id)
   .then(flight => {
+    console.log("FLIGHT LOG", flight)
     res.render('flights/show', {
       title: 'Flight Detail',
       flight: flight
@@ -83,6 +84,27 @@ function update(req, res) {
     res.redirect('/')
   })
 }
+
+function createTicket(req, res) {
+  console.log("REQ BODY", req.body)
+  Flight.findById(req.params.id)
+  .then(flight => {
+    console.log('FLIGHT OBJECT', flight)
+    flight.tickets.push(req.body)
+    flight.save()
+    .then(() => {
+      res.redirect(`/flights/${flight._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
 export {
   index,
   newFlight as new,
@@ -90,5 +112,6 @@ export {
   show,
   deleteFlight as delete,
   edit,
-  update
+  update,
+  createTicket
 }
