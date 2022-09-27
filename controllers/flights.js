@@ -34,7 +34,6 @@ function index(req, res) {
 function show(req, res) {
   Flight.findById(req.params.id)
   .then(flight => {
-    console.log("FLIGHT LOG", flight)
     res.render('flights/show', {
       title: 'Flight Detail',
       flight: flight
@@ -86,7 +85,6 @@ function update(req, res) {
 }
 
 function createTicket(req, res) {
-  console.log("REQ BODY", req.body)
   Flight.findById(req.params.id)
   .then(flight => {
     console.log('FLIGHT OBJECT', flight)
