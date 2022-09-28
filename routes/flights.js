@@ -16,6 +16,8 @@ router.get('/:id/edit', flightsCtrl.edit)
 router.post('/', flightsCtrl.create)
 // POST /flights/:id/ticket
 router.post('/:id/tickets', flightsCtrl.createTicket)
+// POST /flight/:id/meals
+router.post('/:id/meals', flightsCtrl.addToMeals)
 // PUT flights/:id
 router.put('/:id', flightsCtrl.update)
 // DELETE /movies/:id
